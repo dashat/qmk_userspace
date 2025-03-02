@@ -100,14 +100,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  SE_Q,    SE_W,    SE_F,    SE_P,    SE_B,    SE_QUOT, SE_J,    SE_L,    SE_U,    SE_Y,    SE_K,    SE_ARNG, 
         KC_BSPC, SE_A,    SE_R,    SE_S,    SE_T,    SE_G,    SE_SCLN, SE_ODIA, SE_N,    SE_E,    SE_I,    SE_O,    SE_ADIA, KC_ENT,
         OSM(MOD_LSFT), SE_Z,  SE_X,  SE_C,  SE_D,    SE_V,    SE_MINS, SE_SLSH, SE_H,    SE_M,    SE_COMM, SE_DOT,  OSM(MOD_RSFT), MO(2),
-        KC_LCTL, KC_LGUI,    KC_LALT,                            KC_SPC,                          OSM(MOD_RALT),  MO(3),    MO(1), KC_RCTL
+        KC_LALT, KC_LGUI,    KC_LCTL,                            KC_SPC,                          OSM(MOD_RALT),  MO(3),    MO(1), KC_RCTL
     ),    
 	[1] = LAYOUT_60_iso_split_bs_rshift(
         KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSPC,  KC_GRV, 
         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC,
         KC_CAPS, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, KC_NUHS, KC_ENT,
         OSM(MOD_LSFT), KC_NUBS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, OSM(MOD_RSFT), MO(2),
-        KC_LCTL, KC_LGUI, KC_LALT,                            KC_SPC,                             OSM(MOD_RALT), MO(3),  TG(1), KC_RCTL
+        KC_LALT, KC_LGUI, KC_LCTL,                            KC_SPC,                             OSM(MOD_RALT), MO(3),  TG(1), KC_RCTL
     ),
 	[2] = LAYOUT_60_iso_split_bs_rshift(
         KC_NUM , KC_PPLS, KC_PMNS, KC_PAST, KC_PSLS, _______, _______, QK_BOOT,   _______, _______, _______, _______, _______, _______, _______, 
