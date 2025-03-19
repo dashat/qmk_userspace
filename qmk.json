@@ -2,6 +2,7 @@
     "userspace_version": "1.1",
     "build_targets": [
         ["dztech/tofu60", "hashat"],
-        ["ploopyco/madromys/rev1_001", "hashat"]
+        ["ploopyco/madromys/rev1_001", "hashat"],
+        ["input_club/infinity60/rev1", "hashat"]
     ]
 }
