@@ -96,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * └─────┴───┴─────┴───────────────────────┴─────┴───┴───┴─────┘
      */
     [0] = LAYOUT_60_ansi_split_bs_rshift(
-        KC_ESC,  SE_1,    SE_2,    SE_3,    SE_4,    SE_5,    SE_6,    SE_EQL,    SE_7,    SE_8,    SE_9,    SE_0, SN_LBRC, SE_RBRC, KC_DEL,
+        KC_ESC,  SE_1,    SE_2,    SE_3,    SE_4,    SE_5,    SE_6,    SE_EQL,    SE_7,    SE_8,    SE_9,    SE_0, SE_LBRC, SE_RBRC, KC_DEL,
         KC_TAB,  SE_Q,    SE_W,    SE_F,    SE_P,    SE_B,    SE_QUOT,    SE_J,    SE_L,    SE_U,    SE_Y,    SE_K, SE_ARNG, KC_ENT,
         KC_BSPC, SE_A,    SE_R,    SE_S,    SE_T,    SE_G,    SE_SCLN,    SE_ODIA,    SE_N,    SE_E,    SE_I, SE_O,          SE_ADIA,
         LSFT_T(SE_Z),          SE_X,    SE_C,    SE_D,    SE_V,    SE_MINS,    SE_SLSH,    SE_H,    SE_M, SE_COMM,  SE_DOT, KC_RSFT, MO(2),
@@ -121,7 +121,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSPC,
         KC_CAPS, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,          KC_ENT,
         KC_LSFT,          KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, MO(2),
-        KC_LCTRL, KC_LGUI, KC_LALT,                            KC_SPC,                             KC_RALT, MO(3), TG(1), KC_RCTL
+        KC_LCTL, KC_LGUI, KC_LALT,                            KC_SPC,                             KC_RALT, MO(3), TG(1), KC_RCTL
     ),    
 	/*
      * ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
