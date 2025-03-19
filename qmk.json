@@ -3,6 +3,7 @@
     "build_targets": [
         ["dztech/tofu60", "hashat"],
         ["ploopyco/madromys/rev1_001", "hashat"],
-        ["input_club/infinity60/rev1", "hashat"]
+        ["input_club/infinity60/rev1", "hashat"],
+        ["ai03/altair", "hashat"]
     ]
 }
