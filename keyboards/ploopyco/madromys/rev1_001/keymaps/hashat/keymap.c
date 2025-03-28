@@ -22,7 +22,13 @@ uint16_t overall_scroll_distance = 0;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT( KC_BTN4, KC_BTN5, DRAG_SCROLL, KC_BTN2, KC_BTN1, MO(1) ),
-	[1] = LAYOUT( KC_MPLY, KC_MNXT, QK_BOOT, DPI_CONFIG, KC_BTN3, XXXXXXX )
+	[1] = LAYOUT( KC_MPLY, KC_MNXT, DPI_CONFIG, OSM(2), KC_BTN3, XXXXXXX ),
+	[2] = LAYOUT( DF(3), XXXXXXX, QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX ),
+	
+	// Mirrored layout
+	[3] = LAYOUT( KC_BTN2, DRAG_SCROLL, KC_BTN5, KC_BTN4, MO(4), KC_BTN1 ),
+	[4] = LAYOUT( OSM(5), DPI_CONFIG, KC_MNXT, KC_MPLY, XXXXXXX, KC_BTN3 ),
+	[5] = LAYOUT( DF(0), XXXXXXX, QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX )
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
