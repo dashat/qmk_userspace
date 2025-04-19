@@ -105,33 +105,45 @@ const key_override_t *key_overrides[] = {
      */
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [0] = LAYOUT_60_iso_split_bs_rshift(
+    //base with homerow mods
+	[0] = LAYOUT_60_iso_split_bs_rshift(
         KC_ESC,  SE_1,    SE_2,    SE_3,    SE_4,    SE_5,    SE_6,    SE_EQL,  SE_7,    SE_8,    SE_9,    SE_0,    SE_LBRC, KC_DEL, SE_RBRC, 
         KC_TAB,  SE_Q,    SE_W,    SE_F,    SE_P,    SE_B,    SE_QUOT, SE_J,    SE_L,    SE_U,    SE_Y,    SE_K,    SE_ARNG, 
         KC_BSPC, HOME_A,  HOME_R,  HOME_S,  HOME_T,  SE_G,    SE_SCLN, SE_ODIA, HOME_N,  HOME_E,  HOME_I,  HOME_O,  SE_ADIA, KC_ENT,
-        KC_LSFT, SE_Z,    SE_X,    SE_C,    SE_D,    SE_V,    SE_MINS, SE_SLSH, SE_H,    SE_M,    SE_COMM, SE_DOT,  KC_RSFT, MO(2),
-        KC_LGUI, KC_LALT,    KC_LCTL,                            KC_SPC,                          KC_RALT,  MO(3),    MO(1), KC_RCTL
-    ),    
-	[1] = LAYOUT_60_iso_split_bs_rshift(
+        KC_LSFT, SE_Z,    SE_X,    SE_C,    SE_D,    SE_V,    SE_MINS, SE_SLSH, SE_H,    SE_M,    SE_COMM, SE_DOT,  KC_RSFT, MO(3),
+        KC_LGUI, KC_LALT,    KC_LCTL,                            KC_SPC,                          KC_RALT,  MO(4),    TG(1), KC_RCTL
+    ), 
+	//base without homerow mods
+    [1] = LAYOUT_60_iso_split_bs_rshift(
+        KC_ESC,  SE_1,    SE_2,    SE_3,    SE_4,    SE_5,    SE_6,    SE_EQL,  SE_7,    SE_8,    SE_9,    SE_0,    SE_LBRC, KC_DEL, SE_RBRC, 
+        KC_TAB,  SE_Q,    SE_W,    SE_F,    SE_P,    SE_B,    SE_QUOT, SE_J,    SE_L,    SE_U,    SE_Y,    SE_K,    SE_ARNG, 
+        KC_BSPC, SE_A,    SE_R,    SE_S,    SE_T,    SE_G,    SE_SCLN, SE_ODIA, SE_N,    SE_E,    SE_I,    SE_O,    SE_ADIA, KC_ENT,
+        KC_LSFT, SE_Z,    SE_X,    SE_C,    SE_D,    SE_V,    SE_MINS, SE_SLSH, SE_H,    SE_M,    SE_COMM, SE_DOT,  KC_RSFT, MO(3),
+        KC_LGUI, KC_LALT,    KC_LCTL,                            KC_SPC,                          KC_RALT,  MO(4),  _______, KC_RCTL
+    ),
+	//normal qwerty
+	[2] = LAYOUT_60_iso_split_bs_rshift(
         KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSPC,  KC_GRV, 
         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC,
         KC_CAPS, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, KC_NUHS, KC_ENT,
-        KC_LSFT, KC_NUBS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, MO(2),
-        KC_LCTL, KC_LGUI, KC_LALT,                            KC_SPC,                             KC_RALT, MO(3),  _______, KC_RCTL
+        KC_LSFT, KC_NUBS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, MO(3),
+        KC_LCTL, KC_LGUI, KC_LALT,                            KC_SPC,                             KC_RALT, MO(4),  _______, KC_RCTL
     ),
-	[2] = LAYOUT_60_iso_split_bs_rshift(
+	//numpad and navigation
+	[3] = LAYOUT_60_iso_split_bs_rshift(
         KC_NUM , KC_PPLS, KC_PMNS, KC_PAST, KC_PSLS, _______, _______, QK_BOOT,   _______, _______, _______, _______, _______, _______, _______, 
 		_______, KC_P7,   KC_P8,   KC_P9,   _______, _______, _______, _______, _______, KC_PGUP, KC_HOME, KC_UP,   KC_END, 
         _______,  KC_P4,   KC_P5,   KC_P6,   KC_PDOT, _______, _______, _______, _______, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_ENT,
         _______, KC_P0,   KC_P1,   KC_P2,   KC_P3,   _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______,                              KC_PENT,                         _______,  _______, TG(1), _______
+        _______, _______, _______,                              KC_PENT,                         _______,  _______, TG(2), _______
     ),
-    [3] = LAYOUT_60_iso_split_bs_rshift(
+	//function and media controls
+    [4] = LAYOUT_60_iso_split_bs_rshift(
         _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_PSCR, KC_F7,   KC_F8,   KC_F9,   KC_F10,   KC_F11,  KC_BSPC, KC_F12,
 		_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, 
         KC_CAPS, KC_VOLD, KC_VOLU, KC_MUTE, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, KC_MPLY, KC_MPRV, KC_MNXT, _______, _______, _______, _______, _______, _______, _______, _______, _______, TG(2),
-        _______, _______, _______,                             _______,                         _______,  _______,  TG(1), _______
+        _______, KC_MPLY, KC_MPRV, KC_MNXT, _______, _______, _______, _______, _______, _______, _______, _______, _______, TG(3),
+        _______, _______, _______,                             _______,                         _______,  _______,  _______, _______
     )
 
 };
