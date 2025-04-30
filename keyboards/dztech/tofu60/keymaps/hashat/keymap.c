@@ -49,7 +49,7 @@ const key_override_t shift_bspc_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC
 const key_override_t shift_del_override = ko_make_basic(MOD_MASK_SHIFT, KC_DEL, KC_BSPC);		//shift+del > BSPC
 // adding missing symbols
 const key_override_t altgr_slsh_override = ko_make_basic(MOD_BIT(KC_ALGR), SE_SLSH, SE_BSLS);	//ralt+/ > (backslash)
-const key_override_t altgr_i_override = ko_make_basic(MOD_BIT(KC_ALGR), SE_I, SE_PIPE);			//ralt+i > |
+const key_override_t altgr_z_override = ko_make_basic(MOD_BIT(KC_ALGR), SE_Z, SE_PIPE);			//ralt+z > |
 const key_override_t altgr_eql_override = ko_make_basic(MOD_BIT(KC_ALGR), SE_EQL, SE_ACUT);		//ralt+= > ´ (dead)
 const key_override_t altgr_quot_override = ko_make_basic(MOD_BIT(KC_ALGR), SE_QUOT, SE_GRV);	//ralt+' > ` (dead)
 const key_override_t altgr_scln_override = ko_make_basic(MOD_BIT(KC_ALGR), SE_SCLN, SE_DIAE);	//ralt+; > ¨ (dead)
@@ -80,7 +80,7 @@ const key_override_t *key_overrides[] = {
 	&shift_bspc_override,
 	&shift_del_override,
 	&altgr_slsh_override,
-	&altgr_i_override,
+	&altgr_z_override,
 	&altgr_eql_override,
 	&altgr_quot_override, 
 	&altgr_scln_override, 
