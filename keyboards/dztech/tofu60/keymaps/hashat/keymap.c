@@ -26,6 +26,8 @@
 #define HOME_I LALT_T(SE_I)
 #define HOME_O RGUI_T(SE_O)
 
+#define ALT_F4 LALT(KC_F4)
+
 
 // turning swedish symbols to ANSI-versions
 const key_override_t shift_2_override = ko_make_basic(MOD_MASK_SHIFT, SE_2, SE_AT);				//shift+2 > @
@@ -108,17 +110,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //base with homerow mods
 	[0] = LAYOUT_60_iso_split_bs_rshift(
         KC_ESC,  SE_1,    SE_2,    SE_3,    SE_4,    SE_5,    SE_MINS, SE_EQL,  SE_6,    SE_7,    SE_8,    SE_9,    SE_0, KC_DEL, SE_RBRC, 
-        KC_TAB,  SE_Q,    SE_W,    SE_F,    SE_P,    SE_G,    SE_LBRC, SE_J,    SE_L,    SE_U,    SE_Y,    SE_ARNG, SE_QUOT, 
+        KC_TAB,  SE_Q,    SE_W,    SE_F,    SE_P,    SE_G,    SE_LBRC, SE_J,    SE_L,    SE_U,    SE_B,    SE_ARNG, SE_QUOT, 
         KC_BSPC, HOME_A,  HOME_R,  HOME_S,  HOME_T,  SE_ODIA, SE_DOT,  SE_ADIA, HOME_N,  HOME_E,  HOME_I,  HOME_O,  SE_SCLN, KC_ENT,
-        KC_LSFT, SE_Z,    SE_X,    SE_C,    SE_D,    SE_V,    SE_COMM, SE_B,    SE_H,    SE_M,    SE_K,    SE_SLSH, KC_RSFT, MO(3),
+        KC_LSFT, SE_Z,    SE_X,    SE_C,    SE_D,    SE_V,    SE_COMM, SE_Y,    SE_H,    SE_M,    SE_K,    SE_SLSH, KC_RSFT, MO(3),
         KC_LGUI, KC_LALT,    KC_LCTL,                            KC_SPC,                          KC_RALT,  MO(4),    TG(1), KC_RCTL
     ), 
 	//base without homerow mods
     [1] = LAYOUT_60_iso_split_bs_rshift(
         KC_ESC,  SE_1,    SE_2,    SE_3,    SE_4,    SE_5,    SE_MINS, SE_EQL,  SE_6,    SE_7,    SE_8,    SE_9,    SE_0, KC_DEL, SE_RBRC, 
-        KC_TAB,  SE_Q,    SE_W,    SE_F,    SE_P,    SE_G,    SE_LBRC, SE_J,    SE_L,    SE_U,    SE_Y,    SE_ARNG, SE_QUOT, 
+        KC_TAB,  SE_Q,    SE_W,    SE_F,    SE_P,    SE_G,    SE_LBRC, SE_J,    SE_L,    SE_U,    SE_B,    SE_ARNG, SE_QUOT, 
         KC_BSPC, SE_A,    SE_R,    SE_S,    SE_T,    SE_ODIA, SE_DOT,  SE_ADIA, SE_N,    SE_E,    SE_I,    SE_O,    SE_SCLN, KC_ENT,
-        KC_LSFT, SE_Z,    SE_X,    SE_C,    SE_D,    SE_V,    SE_COMM, SE_B,    SE_H,    SE_M,    SE_K,    SE_SLSH, KC_RSFT, MO(3),
+        KC_LSFT, SE_Z,    SE_X,    SE_C,    SE_D,    SE_V,    SE_COMM, SE_Y,    SE_H,    SE_M,    SE_K,    SE_SLSH, KC_RSFT, MO(3),
         KC_LGUI, KC_LALT,    KC_LCTL,                            KC_SPC,                          KC_RALT,  MO(4),    TG(1), KC_RCTL
     ),
 	//normal qwerty
@@ -139,7 +141,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 	//function and media controls
     [4] = LAYOUT_60_iso_split_bs_rshift(
-        _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_PSCR, KC_F7,   KC_F8,   KC_F9,   KC_F10,   KC_F11,  KC_BSPC, KC_F12,
+        _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   ALT_F4,  KC_PSCR, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F12,  KC_F11,
 		_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, 
         KC_CAPS, KC_VOLD, KC_VOLU, KC_MUTE, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         _______, KC_MPLY, KC_MPRV, KC_MNXT, _______, _______, _______, _______, _______, _______, _______, _______, _______, TG(3),
