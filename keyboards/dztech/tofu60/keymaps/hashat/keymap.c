@@ -110,17 +110,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //base with homerow mods
 	[0] = LAYOUT_60_iso_split_bs_rshift(
         KC_ESC,  SE_1,    SE_2,    SE_3,    SE_4,    SE_5,    SE_MINS, SE_EQL,  SE_6,    SE_7,    SE_8,    SE_9,    SE_0, KC_DEL, SE_RBRC, 
-        KC_TAB,  SE_Q,    SE_W,    SE_F,    SE_P,    SE_G,    SE_LBRC, SE_J,    SE_L,    SE_U,    SE_B,    SE_ARNG, SE_QUOT, 
+        KC_TAB,  SE_Q,    SE_W,    SE_F,    SE_P,    SE_G,    SE_LBRC, SE_J,    SE_L,    SE_U,    SE_Y,    SE_ARNG, SE_QUOT, 
         KC_BSPC, HOME_A,  HOME_R,  HOME_S,  HOME_T,  SE_ODIA, SE_DOT,  SE_ADIA, HOME_N,  HOME_E,  HOME_I,  HOME_O,  SE_SCLN, KC_ENT,
-        KC_LSFT, SE_Z,    SE_X,    SE_C,    SE_D,    SE_V,    SE_COMM, SE_Y,    SE_H,    SE_M,    SE_K,    SE_SLSH, KC_RSFT, MO(3),
+        KC_LSFT, SE_Z,    SE_X,    SE_C,    SE_D,    SE_V,    SE_COMM, SE_B,    SE_H,    SE_M,    SE_K,    SE_SLSH, KC_RSFT, MO(3),
         KC_LGUI, KC_LALT,    KC_LCTL,                            KC_SPC,                          KC_RALT,  MO(4),    TG(1), KC_RCTL
     ), 
 	//base without homerow mods
     [1] = LAYOUT_60_iso_split_bs_rshift(
         KC_ESC,  SE_1,    SE_2,    SE_3,    SE_4,    SE_5,    SE_MINS, SE_EQL,  SE_6,    SE_7,    SE_8,    SE_9,    SE_0, KC_DEL, SE_RBRC, 
-        KC_TAB,  SE_Q,    SE_W,    SE_F,    SE_P,    SE_G,    SE_LBRC, SE_J,    SE_L,    SE_U,    SE_B,    SE_ARNG, SE_QUOT, 
+        KC_TAB,  SE_Q,    SE_W,    SE_F,    SE_P,    SE_G,    SE_LBRC, SE_J,    SE_L,    SE_U,    SE_Y,    SE_ARNG, SE_QUOT, 
         KC_BSPC, SE_A,    SE_R,    SE_S,    SE_T,    SE_ODIA, SE_DOT,  SE_ADIA, SE_N,    SE_E,    SE_I,    SE_O,    SE_SCLN, KC_ENT,
-        KC_LSFT, SE_Z,    SE_X,    SE_C,    SE_D,    SE_V,    SE_COMM, SE_Y,    SE_H,    SE_M,    SE_K,    SE_SLSH, KC_RSFT, MO(3),
+        KC_LSFT, SE_Z,    SE_X,    SE_C,    SE_D,    SE_V,    SE_COMM, SE_B,    SE_H,    SE_M,    SE_K,    SE_SLSH, KC_RSFT, MO(3),
         KC_LGUI, KC_LALT,    KC_LCTL,                            KC_SPC,                          KC_RALT,  MO(4),    TG(1), KC_RCTL
     ),
 	//normal qwerty
