@@ -19,11 +19,13 @@
 #define ALT_F4 LALT(KC_F4)
 
 enum layer_names {
-	_BH,
-	_BL,
-	_QW,
-	_FH,
-	_FL,
+	_BH,	//modded colemak base with homerow mods
+	_BL,	//modded colemak base without hrm
+	_QW,	//qwerty (swedish?)
+	_FH,	//function layer with homerow mods
+	_FL,	//function layer without hrm
+	_GL,	//gaming layer
+	_GF,	//gaming sublayer
 };
 
 
@@ -97,7 +99,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  SE_Q,    SE_W,    SE_F,    SE_P,    SE_G,    SE_LBRC, SE_RBRC, SE_J,    SE_L,    SE_U,    SE_Y,    SE_ARNG, SE_SCLN,
         KC_BSPC, HOME_A,  HOME_R,  HOME_S,  HOME_T,  SE_ODIA, SE_LPRN, SE_RPRN, SE_ADIA, HOME_N,  HOME_E,  HOME_I,  HOME_O,  SE_QUOT,
         KC_LSFT, SE_Z,    SE_X,    SE_C,    SE_D,    SE_V,    SE_COMM, SE_DOT,  SE_B,    SE_H,    SE_M,    SE_K,    SE_SLSH, KC_ENT,
-                                   KC_LALT, KC_LCTL, KC_SPC,  MO(_FH), MO(_FH), KC_SPC,  KC_RALT, KC_RGUI
+                                   KC_LALT, KC_LCTL, KC_SPC,  MO(_FH), MO(_FH), KC_SPC,  KC_RGUI, KC_RALT
     ),
 	//base without homerow mods
     [_BL] = LAYOUT(
@@ -105,7 +107,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  SE_Q,    SE_W,    SE_F,    SE_P,    SE_G,    SE_LBRC, SE_RBRC, SE_J,    SE_L,    SE_U,    SE_Y,    SE_ARNG, SE_SCLN,
         KC_BSPC, SE_A,    SE_R,    SE_S,    SE_T,    SE_ODIA, SE_LPRN, SE_RPRN, SE_ADIA, SE_N,    SE_E,    SE_I,    SE_O,    SE_QUOT,
         KC_LSFT, SE_Z,    SE_X,    SE_C,    SE_D,    SE_V,    SE_COMM, SE_DOT,  SE_B,    SE_H,    SE_M,    SE_K,    SE_SLSH, KC_ENT,
-                                   KC_LALT, KC_LCTL, KC_SPC,  MO(_FH), MO(_FH), KC_SPC,  KC_RALT, KC_RGUI
+                                   KC_LALT, KC_LCTL, KC_SPC,  MO(_FH), MO(_FH), KC_SPC,  KC_RGUI, KC_RALT
     ),
 	//normal qwerty - needs fixing for SE maybe?
 	[_QW] = LAYOUT(
@@ -113,22 +115,39 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_LBRC, KC_RBRC, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_NUHS,
         KC_BSPC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_LPRN, KC_RPRN, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
         KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_GRV,  KC_NUBS, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
-                                   KC_LALT, KC_LCTL, KC_SPC,  MO(_FH),   MO(_FH), KC_SPC,  KC_RALT, KC_RGUI
+                                   KC_LALT, KC_LCTL, KC_SPC,  MO(_FH), MO(_FH), KC_SPC,  KC_RGUI, KC_RALT
     ),
 	//numpad+nav+media+f-row with HRM
     [_FH] = LAYOUT(
         KC_NUM,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   ALT_F4,  QK_BOOT, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
-        _______, KC_PPLS, KC_P7,   KC_P8,   KC_P9,   KC_PAST, KC_VOLU, KC_MPLY, KC_PGUP, KC_HOME, KC_UP,   KC_END,  _______, KC_F12,
-        _______, _______, HOME_P4, HOME_P5, HOME_P6, KC_PDOT, KC_VOLD, KC_MPRV, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
-        _______, KC_PMNS, KC_P1,   KC_P2,   KC_P3,   KC_PSLS, KC_MUTE, KC_MNXT, _______, _______, _______, _______, _______, _______,
-                                   _______, KC_P0,   KC_PENT, _______, _______, _______, TG(_BL), TG(_FL)
+        _______, KC_PPLS, KC_P7,   KC_P8,   KC_P9,   KC_PAST, KC_VOLU, KC_MPRV, KC_PGUP, KC_HOME, KC_UP,   KC_END,  _______, KC_F12,
+        _______, _______, HOME_P4, HOME_P5, HOME_P6, KC_PDOT, KC_VOLD, KC_MNXT, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
+        _______, KC_PMNS, KC_P1,   KC_P2,   KC_P3,   KC_PSLS, KC_MUTE, KC_MPLY, _______, _______, _______, _______, _______, _______,
+                                   _______, KC_P0,   KC_PENT, TG(_GL), _______, KC_TAB,  TG(_BL), TG(_FL)
     ), 	
 	//numpad+nav+media+f-row no HRM
     [_FL] = LAYOUT(
         KC_NUM,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   ALT_F4,  QK_BOOT, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
-        _______, KC_PPLS, KC_P7,   KC_P8,   KC_P9,   KC_PAST, KC_VOLU, KC_MPLY, KC_PGUP, KC_HOME, KC_UP,   KC_END,  _______, KC_F12,
-        _______, _______, KC_P4,   KC_P5,   KC_P6,   KC_PDOT, KC_VOLD, KC_MPRV, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
-        _______, KC_PMNS, KC_P1,   KC_P2,   KC_P3,   KC_PSLS, KC_MUTE, KC_MNXT, _______, _______, _______, _______, _______, _______,
-                                   _______, KC_P0,   KC_PENT, _______, _______, _______, _______, TG(_FL)
-    ), 
+        _______, KC_PPLS, KC_P7,   KC_P8,   KC_P9,   KC_PAST, KC_VOLU, KC_MPRV, KC_PGUP, KC_HOME, KC_UP,   KC_END,  _______, KC_F12,
+        _______, _______, KC_P4,   KC_P5,   KC_P6,   KC_PDOT, KC_VOLD, KC_MNXT, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
+        _______, KC_PMNS, KC_P1,   KC_P2,   KC_P3,   KC_PSLS, KC_MUTE, KC_MPLY, _______, _______, _______, _______, _______, _______,
+                                   _______, KC_P0,   KC_PENT, _______, _______, KC_TAB,  _______, TG(_FL)
+    ),	
+	//gaming
+    [_GL] = LAYOUT(
+        _______, _______, _______, _______, _______, _______, SE_6,    _______, _______, _______, _______, _______, _______, _______, 
+        _______, _______, _______, KC_UP,   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, 
+        _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______, _______, _______, _______, _______, _______, _______, _______, 
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, 
+                                   _______, _______, _______, MO(_GF), TG(_GL), _______, _______, _______ 
+    ),
+
+	//gaming sublayer
+    [_GF] = LAYOUT(
+        _______, _______, _______, _______, _______, _______, SE_MINS, _______, _______, _______, _______, _______, _______, _______, 
+        _______, _______, _______, SE_F,    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, 
+        _______, _______, SE_R,    SE_S,    SE_T,    _______, _______, _______, _______, _______, _______, _______, _______, _______, 
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, 
+                                   _______, _______, _______, _______, TG(_GL), _______, _______, _______ 
+    ),
 };
