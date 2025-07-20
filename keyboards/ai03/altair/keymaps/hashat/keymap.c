@@ -139,7 +139,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  SE_T,    SE_Q,    SE_W,    SE_E,    SE_R,    SE_MINS, SE_MINS, SE_R,    SE_Q,    SE_W,    SE_E,    SE_T,    KC_TAB, 
         KC_LSFT, SE_G,    SE_A,    SE_S,    SE_D,    SE_F,	  SE_COMM, SE_COMM, SE_F,    SE_A,    SE_S,    SE_D,    SE_G,    KC_LSFT, 
         KC_LALT, SE_Z,    SE_X,    SE_C,    SE_V,    SE_B,    SE_DOT,  SE_DOT,  SE_B,    SE_V,    SE_C,    SE_X,    SE_Z,    KC_LALT, 
-                                   TG(_GL), KC_LCTL, KC_SPC,  MO(_GF), MO(_GF), KC_SPC, KC_LCTL, TG(_GL) 
+                                   SE_M,    KC_LCTL, KC_SPC,  MO(_GF), MO(_GF), KC_SPC,  KC_LCTL, SE_M 
     ),
 	//gaming sublayer
     [_GF] = LAYOUT(
@@ -147,6 +147,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, KC_UP,   _______, _______, _______, _______, _______, _______, KC_UP,   _______, _______, _______, 
         _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______, 
         KC_ENT,  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_ENT, 
-                                   _______, _______, _______, _______, _______, _______, _______, _______ 
+                                   TG(_GL), _______, _______, _______, _______, _______, _______, TG(_GL) 
     ),
 };
