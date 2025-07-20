@@ -135,10 +135,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),	
 	//gaming
     [_GL] = LAYOUT(
-        KC_ESC,  SE_5,    SE_4,    SE_3,    SE_2,    SE_1,    _______, _______, SE_1,    SE_2,    SE_3,    SE_4,    SE_5,    KC_ESC, 
-        KC_TAB,  SE_T,    SE_Q,    SE_W,    SE_E,    SE_R,    _______, _______, SE_R,    SE_Q,    SE_W,    SE_E,    SE_T,    KC_TAB, 
-        KC_LSFT, SE_G,    SE_A,    SE_S,    SE_D,    SE_F,	  _______, _______, SE_F,    SE_A,    SE_S,    SE_D,    SE_G,    KC_LSFT, 
-        KC_LALT, SE_Z,    SE_X,    SE_C,    SE_V,    SE_B,    _______, _______, SE_B,    SE_V,    SE_C,    SE_X,    SE_Z,    KC_LALT, 
+        KC_ESC,  SE_5,    SE_4,    SE_3,    SE_2,    SE_1,    SE_EQL,  SE_EQL,  SE_1,    SE_2,    SE_3,    SE_4,    SE_5,    KC_ESC, 
+        KC_TAB,  SE_T,    SE_Q,    SE_W,    SE_E,    SE_R,    SE_MINS, SE_MINS, SE_R,    SE_Q,    SE_W,    SE_E,    SE_T,    KC_TAB, 
+        KC_LSFT, SE_G,    SE_A,    SE_S,    SE_D,    SE_F,	  SE_COMM, SE_COMM, SE_F,    SE_A,    SE_S,    SE_D,    SE_G,    KC_LSFT, 
+        KC_LALT, SE_Z,    SE_X,    SE_C,    SE_V,    SE_B,    SE_DOT,  SE_DOT,  SE_B,    SE_V,    SE_C,    SE_X,    SE_Z,    KC_LALT, 
                                    TG(_GL), KC_LCTL, KC_SPC,  MO(_GF), MO(_GF), KC_SPC, KC_LCTL, TG(_GL) 
     ),
 	//gaming sublayer
