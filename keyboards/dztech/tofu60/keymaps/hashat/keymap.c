@@ -121,7 +121,7 @@ const key_override_t *key_overrides[] = {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //base with homerow mods
 	[_BH] = LAYOUT_60_iso_split_bs_rshift(
-        KC_ESC,  SE_1,    SE_2,    SE_3,    SE_4,    SE_5,    SE_MINS, SE_EQL,  SE_6,    SE_7,    SE_8,    SE_9,    SE_0, KC_DEL, SE_RBRC, 
+        KC_ESC,  SE_1,    SE_2,    SE_3,    SE_4,    SE_5,    SE_MINS, SE_RBRC, SE_EQL,  SE_6,    SE_7,    SE_8,    SE_9, KC_DEL, SE_0,
         KC_TAB,  SE_Q,    SE_W,    SE_F,    SE_P,    SE_G,    SE_LBRC, SE_SLSH, SE_J,    SE_L,    SE_U,    SE_Y,    SE_ARNG,  
         KC_BSPC, HOME_A,  HOME_R,  HOME_S,  HOME_T,  SE_ODIA, SE_SCLN, SE_QUOT, SE_ADIA, HOME_N,  HOME_E,  HOME_I,  HOME_O,  KC_ENT,
         KC_LSFT, SE_Z,    SE_X,    SE_C,    SE_D,    SE_V,    SE_COMM, SE_DOT,  SE_B,    SE_H,    SE_M,    SE_K,    KC_RSFT, MO(_FH),
@@ -129,7 +129,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ), 
 	//base without homerow mods
     [_BL] = LAYOUT_60_iso_split_bs_rshift(
-        KC_ESC,  SE_1,    SE_2,    SE_3,    SE_4,    SE_5,    SE_MINS, SE_EQL,  SE_6,    SE_7,    SE_8,    SE_9,    SE_0, KC_DEL, SE_RBRC, 
+        KC_ESC,  SE_1,    SE_2,    SE_3,    SE_4,    SE_5,    SE_MINS, SE_RBRC, SE_EQL,  SE_6,    SE_7,    SE_8,    SE_9, KC_DEL, SE_0,
         KC_TAB,  SE_Q,    SE_W,    SE_F,    SE_P,    SE_G,    SE_LBRC, SE_SLSH, SE_J,    SE_L,    SE_U,    SE_Y,    SE_ARNG,  
         KC_BSPC, SE_A,    SE_R,    SE_S,    SE_T,    SE_ODIA, SE_SCLN, SE_QUOT, SE_ADIA, SE_N,    SE_E,    SE_I,    SE_O,  KC_ENT,
         KC_LSFT, SE_Z,    SE_X,    SE_C,    SE_D,    SE_V,    SE_COMM, SE_DOT,  SE_B,    SE_H,    SE_M,    SE_K,    KC_RSFT, MO(_FH),
@@ -145,7 +145,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 	//numpad and navigation with HRM
 	[_FH] = LAYOUT_60_iso_split_bs_rshift(
-        KC_NUM , KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   ALT_F4,  QK_BOOT, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,   KC_F12,  KC_F11,
+        KC_NUM , KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   ALT_F4,  KC_F11,  QK_BOOT, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F12,  KC_F10,
 		_______, KC_PPLS, KC_P7,   KC_P8,   KC_P9,   KC_PAST, _______, _______, KC_PGUP, KC_HOME, KC_UP,   KC_END,  _______,
         _______, _______, HOME_P4, HOME_P5, HOME_P6, KC_PDOT, KC_MPRV, KC_MNXT, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, KC_ENT,
         _______, KC_PMNS, KC_P0,   KC_P1,   KC_P2,   KC_P3,   KC_PSLS, KC_MPLY, KC_VOLD, KC_VOLU, KC_MUTE, _______, _______, QK_LLCK,
@@ -153,7 +153,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 	//numpad and navigation no HRM
 	[_FL] = LAYOUT_60_iso_split_bs_rshift(
-        KC_NUM , KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   ALT_F4,  QK_BOOT, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,   KC_F12,  KC_F11,
+        KC_NUM , KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   ALT_F4,  KC_F11,  QK_BOOT, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F12,  KC_F10,
 		_______, KC_PPLS, KC_P7,   KC_P8,   KC_P9,   KC_PAST, _______, _______, KC_PGUP, KC_HOME, KC_UP,   KC_END,  _______,
         _______, _______, KC_P4,   KC_P5,   KC_P6,   KC_PDOT, KC_MPRV, KC_MNXT, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, KC_ENT,
         _______, KC_PMNS, KC_P0,   KC_P1,   KC_P2,   KC_P3,   KC_PSLS, KC_MPLY, KC_VOLD, KC_VOLU, KC_MUTE, _______, _______, QK_LLCK,
