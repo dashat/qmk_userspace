@@ -123,7 +123,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, KC_PPLS, KC_P7,   KC_P8,   KC_P9,   KC_PAST, KC_VOLU, KC_MPRV, KC_PGUP, KC_HOME, KC_UP,   KC_END,  _______, KC_F12,
         _______, _______, HOME_P4, HOME_P5, HOME_P6, KC_PDOT, KC_VOLD, KC_MNXT, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, KC_F14,
         _______, KC_PMNS, KC_P1,   KC_P2,   KC_P3,   KC_PSLS, KC_MUTE, KC_MPLY, _______, _______, _______, _______, _______, _______,
-                                   TG(_FL), KC_P0,   KC_PENT, TG(_GL), _______, KC_TAB,  TG(_BL), TG(_FL)
+                                   TG(_FL), KC_P0,   KC_PENT, TG(_GL), TG(_QW), KC_TAB,  TG(_BL), TG(_FL)
     ), 	
 	//numpad+nav+media+f-row no HRM
     [_FL] = LAYOUT(
