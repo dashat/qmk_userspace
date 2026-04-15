@@ -124,8 +124,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case KTA_DTY:
         if (record->event.pressed) {
             SEND_STRING(SS_TAP(X_LCTL) SS_DELAY(50) "7");
-			layer_clear()
         } else {
+			layer_clear();
 		}
         break;
     case KTA_FLD:
