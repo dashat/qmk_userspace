@@ -16,6 +16,7 @@
 
 #include QMK_KEYBOARD_H
 #include "keymap_swedish.h"
+#include "sendstring_swedish.h"
 
 #define HOME_A LT(_FH, SE_A)
 #define HOME_R LALT_T(SE_R)
@@ -35,11 +36,19 @@
 enum layer_names {
 	_BH,	//modded colemak base with homerow mods
 	_BL,	//modded colemak base without hrm
-	_QW,	//qwerty (swedish?)
+	_SC,	//for use with KTA scanning software
 	_FH,	//function layer with homerow mods
 	_FL,	//function layer without hrm
 };
 
+// custom keycodes for use with KTA
+enum custom_keycodes {
+	KTA_CTN = SAFE_RANGE,	//complete and take next activity
+	KTA_DTY,				//go to document typede
+	KTA_FLD,				//go to fields
+	KTA_NP,					//next page
+	KTA_PP,					//previous page 	
+};
 
 // turning swedish symbols to ANSI-versions
 const key_override_t shift_2_override = ko_make_basic(MOD_MASK_SHIFT, SE_2, SE_AT);				//shift+2 > @
@@ -104,6 +113,66 @@ const key_override_t *key_overrides[] = {
 	&altgr_8_override
 };
 
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+    case KTA_CTN:
+        if (record->event.pressed) {
+            SEND_STRING(SS_TAP(X_LCTL) SS_DELAY(50) "y");
+        } else {
+        }
+        break;
+    case KTA_DTY:
+        if (record->event.pressed) {
+            SEND_STRING(SS_TAP(X_LCTL) SS_DELAY(50) "7");
+			layer_clear()
+        } else {
+		}
+        break;
+    case KTA_FLD:
+        if (record->event.pressed) {
+            SEND_STRING(SS_TAP(X_LCTL) SS_DELAY(50) "6");
+        } else {
+        }
+        break;
+    case KTA_NP:
+        if (record->event.pressed) {
+            SEND_STRING(SS_TAP(X_LCTL) SS_DELAY(50) "b");
+        } else {
+        }
+        break;
+    case KTA_PP:
+        if (record->event.pressed) {
+            SEND_STRING(SS_TAP(X_LCTL) SS_DELAY(50) SS_LSFT("b"));
+        } else {
+        }
+        break;
+    }
+    return true;
+};
+
+bool caps_word_press_user(uint16_t keycode) {
+    switch (keycode) {
+        // Keycodes that continue Caps Word, with shift applied.
+        case KC_A ... KC_Z:
+		case SE_ARNG:
+		case SE_ADIA:
+		case SE_ODIA:
+        case SE_MINS:
+            add_weak_mods(MOD_BIT(KC_LSFT));  // Apply shift to next key.
+            return true;
+
+        // Keycodes that continue Caps Word, without shifting.
+        case KC_1 ... KC_0:
+        case KC_BSPC:
+        case KC_DEL:
+        case KC_UNDS:
+            return true;
+
+        default:
+            return false;  // Deactivate Caps Word.
+    }
+}
+
     /*
      * ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
      * │ 0 │ 1 │ 2 │ 3 │ 4 │ 5 │ 6 │ 7 │ 8 │ 9 │ 10│ 11│ 12│ 14│ 13│
@@ -125,7 +194,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  SE_Q,    SE_W,    SE_F,    SE_P,    SE_G,    SE_LBRC, SE_SLSH, SE_J,    SE_L,    SE_U,    SE_Y,    SE_ARNG,  
         KC_BSPC, HOME_A,  HOME_R,  HOME_S,  HOME_T,  SE_ODIA, SE_SCLN, SE_QUOT, SE_ADIA, HOME_N,  HOME_E,  HOME_I,  HOME_O,  KC_ENT,
         KC_LSFT, SE_Z,    SE_X,    SE_C,    SE_D,    SE_V,    SE_COMM, SE_DOT,  SE_B,    SE_H,    SE_M,    SE_K,    KC_RSFT, MO(_FH),
-        KC_LGUI, KC_LALT,    KC_LCTL,                            KC_SPC,                          KC_RALT,  MO(_FL), KC_RGUI, KC_RCTL
+        KC_LGUI, KC_LALT,    KC_LCTL,                            KC_SPC,                          KC_RALT, TG(_SC), KC_RGUI, KC_RCTL
     ), 
 	//base without homerow mods
     [_BL] = LAYOUT_60_iso_split_bs_rshift(
@@ -133,23 +202,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  SE_Q,    SE_W,    SE_F,    SE_P,    SE_G,    SE_LBRC, SE_SLSH, SE_J,    SE_L,    SE_U,    SE_Y,    SE_ARNG,  
         KC_BSPC, SE_A,    SE_R,    SE_S,    SE_T,    SE_ODIA, SE_SCLN, SE_QUOT, SE_ADIA, SE_N,    SE_E,    SE_I,    SE_O,  KC_ENT,
         KC_LSFT, SE_Z,    SE_X,    SE_C,    SE_D,    SE_V,    SE_COMM, SE_DOT,  SE_B,    SE_H,    SE_M,    SE_K,    KC_RSFT, MO(_FH),
-        KC_LGUI, KC_LALT,    KC_LCTL,                            KC_SPC,                          KC_RALT,  MO(_FL),  KC_RGUI, KC_RCTL
-    ),
-	//normal qwerty
-	[_QW] = LAYOUT_60_iso_split_bs_rshift(
-        KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSPC,  KC_GRV, 
-        KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC,
-        KC_CAPS, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, KC_NUHS, KC_ENT,
-        KC_LSFT, KC_NUBS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, MO(_FH),
-        KC_LCTL, KC_LGUI, KC_LALT,                            KC_SPC,                             KC_RALT, MO(_FL), TG(_QW), KC_RCTL
+        KC_LGUI, KC_LALT,    KC_LCTL,                            KC_SPC,                          KC_RALT, TG(_SC), KC_RGUI, KC_RCTL
     ),
 	//numpad and navigation with HRM
 	[_FH] = LAYOUT_60_iso_split_bs_rshift(
         KC_NUM , KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   ALT_F4,  KC_F11,  QK_BOOT, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F12,  KC_F10,
 		_______, KC_PPLS, KC_P7,   KC_P8,   KC_P9,   KC_PAST, _______, _______, KC_PGUP, KC_HOME, KC_UP,   KC_END,  _______,
-        _______, _______, HOME_P4, HOME_P5, HOME_P6, KC_PDOT, KC_MPRV, KC_MNXT, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, KC_ENT,
+        _______, TO(_SC), HOME_P4, HOME_P5, HOME_P6, KC_PDOT, KC_MPRV, KC_MNXT, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, KC_ENT,
         _______, KC_PMNS, KC_P0,   KC_P1,   KC_P2,   KC_P3,   KC_PSLS, KC_MPLY, KC_VOLD, KC_VOLU, KC_MUTE, _______, _______, QK_LLCK,
-        _______, _______, _______,                              KC_PENT,                         _______,  QK_LLCK, TG(_QW), _______
+        _______, _______, _______,                              KC_PENT,                         _______,  QK_LLCK, TG(_SC), _______
     ),
 	//numpad and navigation no HRM
 	[_FL] = LAYOUT_60_iso_split_bs_rshift(
@@ -157,7 +218,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		_______, KC_PPLS, KC_P7,   KC_P8,   KC_P9,   KC_PAST, _______, _______, KC_PGUP, KC_HOME, KC_UP,   KC_END,  _______,
         _______, _______, KC_P4,   KC_P5,   KC_P6,   KC_PDOT, KC_MPRV, KC_MNXT, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, KC_ENT,
         _______, KC_PMNS, KC_P0,   KC_P1,   KC_P2,   KC_P3,   KC_PSLS, KC_MPLY, KC_VOLD, KC_VOLU, KC_MUTE, _______, _______, QK_LLCK,
-        _______, _______, _______,                              KC_PENT,                         _______,  QK_LLCK, TG(_QW), _______
+        _______, _______, _______,                              KC_PENT,                         _______,  QK_LLCK, TG(_SC), _______
+    ),
+	//for use with KTA
+	[_SC] = LAYOUT_60_iso_split_bs_rshift(
+        KC_ESC , KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   ALT_F4,  KC_F11,  _______, KTA_FLD, KTA_DTY, KC_F8,   KC_F9,   KC_F12,  KC_F10,
+		_______, KC_PPLS, KC_P7,   KC_P8,   KC_P9,   KC_PAST, _______, _______, KC_PGUP, KC_HOME, KC_UP,   KTA_CTN, _______,
+        _______, _______, HOME_P4, HOME_P5, HOME_P6, KC_PDOT, _______, _______, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, TG(_SC), KC_ENT,
+        _______, KC_PMNS, KC_P0,   KC_P1,   KC_P2,   KC_P3,   KTA_PP,  KTA_NP,  _______, _______, _______, _______, _______, _______,
+        _______, _______, _______,                              KC_PENT,                         _______,  TG(_SC), TG(_SC), _______
     )
 
 };
