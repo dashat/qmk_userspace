@@ -39,6 +39,7 @@ enum layer_names {
 	_SC,	//for use with KTA scanning software
 	_FH,	//function layer with homerow mods
 	_FL,	//function layer without hrm
+	_SCE,	//enter switches to _SC
 };
 
 // custom keycodes for use with KTA
@@ -48,6 +49,7 @@ enum custom_keycodes {
 	KTA_FLD,				//go to fields
 	KTA_NP,					//next page
 	KTA_PP,					//previous page 	
+	KTA_ENT,				//enter but return to layer _SC
 };
 
 // turning swedish symbols to ANSI-versions
@@ -117,35 +119,43 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
     case KTA_CTN:
         if (record->event.pressed) {
-            SEND_STRING(SS_TAP(X_LCTL) SS_DELAY(50) "y");
+            SEND_STRING(SS_TAP(X_LCTL) SS_DELAY(100) "y");
         } else {
         }
         break;
     case KTA_DTY:
         if (record->event.pressed) {
-            SEND_STRING(SS_TAP(X_LCTL) SS_DELAY(50) "7");
+            SEND_STRING(SS_TAP(X_LCTL) SS_DELAY(100) "7" SS_DELAY(50));
         } else {
-			layer_clear();
+			layer_move(_SCE);
 		}
         break;
     case KTA_FLD:
         if (record->event.pressed) {
-            SEND_STRING(SS_TAP(X_LCTL) SS_DELAY(50) "6");
+            SEND_STRING(SS_TAP(X_LCTL) SS_DELAY(100) "6");
         } else {
         }
         break;
     case KTA_NP:
         if (record->event.pressed) {
-            SEND_STRING(SS_TAP(X_LCTL) SS_DELAY(50) "b");
+            SEND_STRING(SS_TAP(X_LCTL) SS_DELAY(100) "b");
         } else {
         }
         break;
     case KTA_PP:
         if (record->event.pressed) {
-            SEND_STRING(SS_TAP(X_LCTL) SS_DELAY(50) SS_LSFT("b"));
+            SEND_STRING(SS_TAP(X_LCTL) SS_DELAY(100) SS_LSFT("b"));
         } else {
         }
         break;
+	case KTA_ENT:
+		if (record->event.pressed) {
+			register_code(KC_ENT);
+		} else {
+			unregister_code(KC_ENT);
+			layer_move(_SC);
+		}
+		break;
     }
     return true;
 };
@@ -227,6 +237,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, HOME_P4, HOME_P5, HOME_P6, KC_PDOT, _______, _______, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, TG(_SC), KC_ENT,
         _______, KC_PMNS, KC_P0,   KC_P1,   KC_P2,   KC_P3,   KTA_PP,  KTA_NP,  _______, _______, _______, _______, _______, _______,
         _______, _______, _______,                              KC_PENT,                         _______,  TG(_SC), TG(_SC), _______
-    )
-
+    ),
+	//for use with KTA
+	[_SCE] = LAYOUT_60_iso_split_bs_rshift(
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+		_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KTA_ENT,
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, _______,                              _______,                         _______,  _______, _______, _______
+    ),
 };
