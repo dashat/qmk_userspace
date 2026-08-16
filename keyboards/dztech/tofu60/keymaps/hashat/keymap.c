@@ -31,6 +31,7 @@
 #define HOME_I LALT_T(SE_I)
 #define HOME_O LT(_FH, SE_O)
 
+#define RALT_SC LT(_SC, OS_RALT)
 #define ALT_F4 LALT(KC_F4)
 
 enum layer_names {
@@ -204,7 +205,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  SE_Q,    SE_W,    SE_F,    SE_P,    SE_G,    SE_LBRC, SE_SLSH, SE_J,    SE_L,    SE_U,    SE_Y,    SE_ARNG,  
         KC_BSPC, HOME_A,  HOME_R,  HOME_S,  HOME_T,  SE_ODIA, SE_SCLN, SE_QUOT, SE_ADIA, HOME_N,  HOME_E,  HOME_I,  HOME_O,  KC_ENT,
         KC_LSFT, SE_Z,    SE_X,    SE_C,    SE_D,    SE_V,    SE_COMM, SE_DOT,  SE_B,    SE_H,    SE_M,    SE_K,    KC_RSFT, MO(_FH),
-        KC_LGUI, KC_LALT,    KC_LCTL,                            KC_SPC,                          KC_RALT, TG(_SC), KC_RGUI, KC_RCTL
+        KC_LGUI, KC_LALT,    KC_LCTL,                            KC_SPC,                          RALT_SC, TG(_SC), KC_RGUI, KC_RCTL
     ), 
 	//base without homerow mods
     [_BL] = LAYOUT_60_iso_split_bs_rshift(
@@ -212,7 +213,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  SE_Q,    SE_W,    SE_F,    SE_P,    SE_G,    SE_LBRC, SE_SLSH, SE_J,    SE_L,    SE_U,    SE_Y,    SE_ARNG,  
         KC_BSPC, SE_A,    SE_R,    SE_S,    SE_T,    SE_ODIA, SE_SCLN, SE_QUOT, SE_ADIA, SE_N,    SE_E,    SE_I,    SE_O,  KC_ENT,
         KC_LSFT, SE_Z,    SE_X,    SE_C,    SE_D,    SE_V,    SE_COMM, SE_DOT,  SE_B,    SE_H,    SE_M,    SE_K,    KC_RSFT, MO(_FH),
-        KC_LGUI, KC_LALT,    KC_LCTL,                            KC_SPC,                          KC_RALT, TG(_SC), KC_RGUI, KC_RCTL
+        KC_LGUI, KC_LALT,    KC_LCTL,                            KC_SPC,                          RALT_SC, TG(_SC), KC_RGUI, KC_RCTL
     ),
 	//numpad and navigation with HRM
 	[_FH] = LAYOUT_60_iso_split_bs_rshift(
