@@ -1,0 +1,5 @@
+{
+    "modules": [
+        "dashat/recall_recently_typed"
+    ]
+}
