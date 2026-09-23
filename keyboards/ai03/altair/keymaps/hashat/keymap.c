@@ -92,6 +92,29 @@ const key_override_t *key_overrides[] = {
 	&altgr_8_override
 };
 
+bool caps_word_press_user(uint16_t keycode) {
+    switch (keycode) {
+        // Keycodes that continue Caps Word, with shift applied.
+        case KC_A ... KC_Z:
+		case SE_ARNG:
+		case SE_ADIA:
+		case SE_ODIA:
+        case SE_MINS:
+            add_weak_mods(MOD_BIT(KC_LSFT));  // Apply shift to next key.
+            return true;
+
+        // Keycodes that continue Caps Word, without shifting.
+        case KC_1 ... KC_0:
+        case KC_BSPC:
+        case KC_DEL:
+        case KC_UNDS:
+            return true;
+
+        default:
+            return false;  // Deactivate Caps Word.
+    }
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	//base with homerow mods
     [_BH] = LAYOUT(
@@ -134,13 +157,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                    TO(_BH), KC_P0,   KC_PENT, _______, _______, KC_TAB,  _______, TO(_BH)
     ),	
 	//gaming
-    [_GL] = LAYOUT(
+	[_GL] = LAYOUT(
+        KC_ESC,  SE_1,    SE_2,    SE_3,    SE_4,    SE_5,    SE_MINS, SE_EQL,  SE_6,    SE_7,    SE_8,    SE_9,    SE_0,    KC_DEL,
+        KC_TAB,  SE_Q,    SE_W,    SE_E,    SE_R,    SE_T,    SE_LBRC, SE_RBRC, SE_Y,    SE_U,    SE_I,    SE_O,    SE_P,    SE_ARNG,
+        KC_BSPC, SE_A,    SE_S,    SE_D,    SE_F,    SE_G,    SE_LPRN, SE_RPRN, SE_H,    SE_J,    SE_K,    SE_L,    SE_ODIA, SE_ADIA,
+        KC_LSFT, SE_Z,    SE_X,    SE_C,    SE_V,    SE_B,    KC_GRV,  KC_NUBS, SE_N,    SE_M,    SE_COMM, SE_DOT,  SE_SLSH, KC_ENT,
+                                   KC_LALT, KC_LCTL, KC_SPC,  MO(_GF), MO(_GF), KC_SPC,  KC_RGUI, KC_RALT
+    ),
+    /* 
+	[_GL] = LAYOUT(
         KC_ESC,  SE_5,    SE_4,    SE_3,    SE_2,    SE_1,    SE_EQL,  SE_EQL,  SE_1,    SE_2,    SE_3,    SE_4,    SE_5,    KC_ESC, 
         KC_TAB,  SE_T,    SE_Q,    SE_W,    SE_E,    SE_R,    SE_MINS, SE_MINS, SE_R,    SE_Q,    SE_W,    SE_E,    SE_T,    KC_TAB, 
         KC_LALT, SE_G,    SE_A,    SE_S,    SE_D,    SE_F,	  SE_COMM, SE_COMM, SE_F,    SE_A,    SE_S,    SE_D,    SE_G,    KC_LALT, 
         KC_LSFT, SE_Z,    SE_X,    SE_C,    SE_V,    SE_B,    SE_DOT,  SE_DOT,  SE_B,    SE_V,    SE_C,    SE_X,    SE_Z,    KC_LSFT, 
                                    SE_M,    KC_LCTL, KC_SPC,  MO(_GF), MO(_GF), KC_SPC,  KC_LCTL, SE_M 
-    ),
+    ), 
+	*/
 	//gaming sublayer
     [_GF] = LAYOUT(
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, 
